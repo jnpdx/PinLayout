@@ -21,14 +21,14 @@ import UIKit
 
 class BasicView: UIView {
     private let label = UILabel()
-    
+
     init(text: String? = nil, color: UIColor) {
         super.init(frame: .zero)
 
         backgroundColor = color
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGray.cgColor
-        
+
         label.text = text
         label.font = .systemFont(ofSize: 7)
         label.textColor = .white
@@ -39,19 +39,22 @@ class BasicView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-            
+
         label.pin.top().horizontally().margin(4).sizeToFit(.width)
     }
-    
+
     var sizeThatFitsExpectedArea: CGFloat = 40 * 40
     var sizeThatFitSizeOffset: CGFloat = 0
-    
+
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         var newSize = CGSize()
-        if size.width != CGFloat.greatestFiniteMagnitude {
+        if size.width != CGFloat.greatestFiniteMagnitude && size.height != CGFloat.greatestFiniteMagnitude {
+            newSize.width = 35
+            newSize.height = 45
+        } else if size.width != CGFloat.greatestFiniteMagnitude {
             newSize.width = size.width + sizeThatFitSizeOffset
             newSize.height = sizeThatFitsExpectedArea / newSize.width
         } else if size.height != CGFloat.greatestFiniteMagnitude {
@@ -61,11 +64,7 @@ class BasicView: UIView {
             newSize.width = 40
             newSize.height = sizeThatFitsExpectedArea / newSize.width
         }
-        
-        return newSize
-    }
 
-    override func sizeToFit() {
-        pin.width(35).height(45)
+        return newSize
     }
 }

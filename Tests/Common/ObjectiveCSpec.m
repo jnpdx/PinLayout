@@ -54,7 +54,6 @@ describe(@"test Objective-C interface", ^{
             [Pin initPinLayout];
             [Pin layoutDirection:LayoutDirectionLtr];
             Pin.safeAreaInsetsDidChangeMode = PinSafeAreaInsetsDidChangeModeAlways;
-            Pin.layoutDirection = LayoutDirectionLtr;
             Pin.logWarnings = true;
         });
 
@@ -74,6 +73,15 @@ describe(@"test Objective-C interface", ^{
             [[[aView pinObjc] top:10] layout];
             expect(@(aView.frame)).to(equal(@(CGRectMake(40, 10, 100, 60))));
             expect(Pin.lastWarningText).to(beNil());
+        });
+        
+        it(@"check the access to PinLayout methods from objective-c", ^{
+            [[[rootView pinObjc] wrapContent] layout];
+            [[[rootView pinObjc] wrapContentWithType:WrapTypeVertically] layout];
+            [[[rootView pinObjc] wrapContentWithInsets:UIEdgeInsetsMake(0, 0, 0, 0)] layout];
+            [[[rootView pinObjc] wrapContentWithType:WrapTypeAll insets:UIEdgeInsetsMake(0, 0, 0, 0)] layout];
+            [[[rootView pinObjc] wrapContentWithPadding:10] layout];
+            [[[rootView pinObjc] wrapContentWithType:WrapTypeHorizontally padding:10] layout];            
         });
     });
 });

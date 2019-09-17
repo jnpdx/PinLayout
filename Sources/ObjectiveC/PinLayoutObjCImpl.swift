@@ -662,6 +662,36 @@ import AppKit
         return self
     }
     
+    func wrapContent() -> PinLayoutObjC {
+        _ = impl?.wrapContent()
+        return self
+    }
+    
+    func wrapContent(padding: CGFloat) -> PinLayoutObjC {
+        _ = impl?.wrapContent(padding: padding)
+        return self
+    }
+    
+    func wrapContent(insets: PEdgeInsets) -> PinLayoutObjC {
+        _ = impl?.wrapContent(padding: insets)
+        return self
+    }
+    
+    func wrapContent(type: WrapType) -> PinLayoutObjC {
+        _ = impl?.wrapContent(type)
+        return self
+    }
+    
+    func wrapContent(type: WrapType, padding: CGFloat) -> PinLayoutObjC {
+        _ = impl?.wrapContent(type, padding: padding)
+        return self
+    }
+    
+    func wrapContent(type: WrapType, insets: PEdgeInsets) -> PinLayoutObjC {
+        _ = impl?.wrapContent(type, padding: insets)
+        return self
+    }
+    
     func aspectRatio(_ ratio: CGFloat) -> PinLayoutObjC {
         _ = impl?.aspectRatio(ratio)
         return self
@@ -679,6 +709,10 @@ import AppKit
     }
     #endif
 
+    func sizeToFit() -> PinLayoutObjC {
+        return sizeToFit(.content)
+    }
+
     func sizeToFit(_ fitType: Fit) -> PinLayoutObjC {
         let type: FitType
         switch fitType {
@@ -686,6 +720,7 @@ import AppKit
         case .height: type = .height
         case .widthFlexible: type = .widthFlexible
         case .heightFlexible: type = .heightFlexible
+        case .content: type = .content
         }
         _ = impl?.sizeToFit(type)
         return self

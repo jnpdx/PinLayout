@@ -1,0 +1,16 @@
+PODS:
+  - PinLayout (1.8.9)
+
+DEPENDENCIES:
+  - PinLayout (from `../../..`)
+
+EXTERNAL SOURCES:
+  PinLayout:
+    :path: "../../.."
+
+SPEC CHECKSUMS:
+  PinLayout: f7237c104696f409470947fee3ac82e239cac367
+
+PODFILE CHECKSUM: 8c63011727a286dcaaff051ed3b2eedd5363f244
+
+COCOAPODS: 1.7.5

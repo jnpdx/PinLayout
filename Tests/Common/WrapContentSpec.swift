@@ -66,6 +66,10 @@ class WrapContentSpec: QuickSpec {
             rootView.frame = CGRect(x: 0, y: 100, width: 400, height: 400)
         }
 
+        afterEach {
+            _pinlayoutSetUnitTest(scale: nil)
+        }
+
         describe("wrapContent") {
             it("wrap and update subviews position") {
                 aView.frame = CGRect(x: 20, y: 10, width: 200, height: 100)
@@ -313,7 +317,6 @@ class WrapContentSpec: QuickSpec {
                 expect(aViewChild3.frame).to(equal(CGRect(x: 220.0, y: 140.0, width: 60.0, height: 60.0)))
 
             }
-
 
             it("wrap vertically + padding PEdgeInsets") {
                 aView.frame = CGRect(x: 20, y: 10, width: 200, height: 100)

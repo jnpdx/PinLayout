@@ -249,6 +249,17 @@ import AppKit
     #elseif os(macOS)
     @discardableResult func size(of view: NSView) -> PinLayoutObjC
     #endif
+    
+    
+    //
+    // MARK: wrapContent
+    @discardableResult func wrapContent() -> PinLayoutObjC;
+    @discardableResult func wrapContent(padding: CGFloat) -> PinLayoutObjC;
+    @discardableResult func wrapContent(insets: PEdgeInsets) -> PinLayoutObjC;
+    @discardableResult func wrapContent(type: WrapType) -> PinLayoutObjC;
+    @discardableResult func wrapContent(type: WrapType, padding: CGFloat) -> PinLayoutObjC;
+    @discardableResult func wrapContent(type: WrapType, insets: PEdgeInsets) -> PinLayoutObjC;
+
 
     /**
      Set the view aspect ratio.
@@ -278,7 +289,6 @@ import AppKit
     @discardableResult func aspectRatio(of view: NSView) -> PinLayoutObjC
     #endif
 
-
     /**
      If the layouted view is an UIImageView, this method will set the aspectRatio using
      the UIImageView's image dimension.
@@ -288,6 +298,8 @@ import AppKit
     #if os(iOS) || os(tvOS)
     @discardableResult func aspectRatio() -> PinLayoutObjC
     #endif
+
+    @discardableResult func sizeToFit() -> PinLayoutObjC
 
     @discardableResult func sizeToFit(_ fitType: Fit) -> PinLayoutObjC
 
@@ -397,4 +409,5 @@ import AppKit
     case height
     case widthFlexible
     case heightFlexible
+    case content
 }

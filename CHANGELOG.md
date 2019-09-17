@@ -7,6 +7,86 @@
 
 # Change Log
 
+## [1.8.10](https://github.com/layoutBox/PinLayout/releases/tag/1.8.10)
+Released on 2019-09-16
+
+#### Usage `UIView.effectiveUserInterfaceLayoutDirection` to detect RTL
+
+* Use `UIView.effectiveUserInterfaceLayoutDirection` to detect RTL on iOS 10 and above. This is recommended approach to detect layout direction taking into account view's semantic content attribute, trait environment and UIApplication layout direction.
+	* Added by [MontakOleg](https://github.com/MontakOleg) in Pull Request [#200](https://github.com/layoutBox/PinLayout/pull/200) 
+* Update Travis to Xcode 11.
+	* Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#202](https://github.com/layoutBox/PinLayout/pull/202) 
+
+
+## [1.8.9](https://github.com/layoutBox/PinLayout/releases/tag/1.8.9)
+Released on 2019-08-16
+
+#### Upgrade to Swift 5 
+
+* Upgrade project to Swift 5
+* Update Pods
+* Apply xcodeproj migration
+
+Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#195](https://github.com/layoutBox/PinLayout/pull/195) 
+
+
+## [1.8.8](https://github.com/layoutBox/PinLayout/releases/tag/1.8.8)
+Released on 2019-06-25
+
+#### Update Swift Package Manager support for Xcode 11 
+
+* Updated PinLayout to be used with Xcode 11's Swift Package Manager.
+    * Added by [Hal Lee](https://github.com/hallee) in Pull Request [#192](https://github.com/layoutBox/PinLayout/pull/192) 
+ 
+* Fix Warnings: `public' modifier is redundant for instance method declared in a public extension`.
+    * Added by [MontakOleg](https://github.com/MontakOleg) in Pull Request [#193](https://github.com/layoutBox/PinLayout/pull/193) 
+
+## [1.8.7](https://github.com/layoutBox/PinLayout/releases/tag/1.8.7)
+Released on 2019-03-02
+
+#### Add missing Objective-C API methods
+
+* wrapContent
+* wrapContentWithPadding:(CGFloat)
+* wrapContentWithInsets:(PEdgeInsets)
+* wrapContentWithType:(WrapType)
+* wrapContentWithType:(WrapType) padding:(CGFloat)
+* wrapContentWithType:(WrapType) insets:(PEdgeInsets)
+
+## [1.8.6](https://github.com/layoutBox/PinLayout/releases/tag/1.8.6)
+Released on 2018-09-29
+
+#### Update support for Swift 4.2
+The PinLayout pod doesn't specify anymore the Swift language version. 
+
+PinLayout supports Swift versions:
+* Swift 4.2 / 4.1 / 4.0
+* Swift 3.*
+
+* Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#178](https://github.com/layoutBox/PinLayout/pull/178) 
+
+
+## [1.8.5](https://github.com/layoutBox/PinLayout/releases/tag/1.8.5)
+Released on 2018-09-27
+
+#### Minor internal changes
+Remove `sizeToFit()` from SizeCalculable protocol. 
+This change ensure that PinLayout `pin.sizeToFit()` method behave correctly. As per the iOS documentation, we should not directly override sizeToFit() but rather always only implement sizeThatFits(_:) for auto-sizing needs. This update aim to remove the sizeToFit() requirement in the SizeCalculable protocol.
+
+* Added by [Antoine Lamy](https://github.com/antoinelamy) in Pull Request [#164](https://github.com/layoutBox/PinLayout/pull/164) 
+
+
+## [1.8.4](https://github.com/layoutBox/PinLayout/releases/tag/1.8.4)
+Released on 2018-09-25
+
+#### Minor changes
+
+* Cleanup .xcodeproj
+* Removed Swiftlint warnings
+* Fix an issue with PinLayoutSample app related to IntroRTLView example
+
+* Added by [Luc Dion](https://github.com/lucdion) in Pull Request [#177](https://github.com/layoutBox/PinLayout/pull/177) 
+
 ## [1.8.3](https://github.com/layoutBox/PinLayout/releases/tag/1.8.3)
 Released on 2018-08-28
 
